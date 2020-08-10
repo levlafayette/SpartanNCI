@@ -6,7 +6,7 @@ A four-hour tutorial/workshop for establishing accounts at NCI, transferring wor
 If you check this repository out be aware that it uses Git submodules to manage the reveal.js dependency. To also checkout reveal.js, you will have to either:
 
 ### fetch it all in one hit
-`git clone --recursive https://github.com/UoM-ResPlat-DevOps/SpartanIntro`
+`git clone --recursive https://github.com/UoM-ResPlat-DevOps/SpartanNCI`
 
 Or:
 
