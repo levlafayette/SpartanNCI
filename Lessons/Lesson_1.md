@@ -292,6 +292,12 @@ application input.$PBS_ARRAY_INDEX > output.$PBS_ARRAY_INDEX
 -- *Slide End* --
 
 -- *Slide* --
+### Part 4: Job Dependency
+* Setup for a chain of jobs; launch with `qsub depend=afterok:$jobid $jobname`
+* Directives include; `after`, `afterok`, `afternotok`, `afterany`, `before`, `beforeok`, `beforenotok`, `beforeany`
+-- *Slide End* --
+
+-- *Slide* --
 ### Part 4: GPU Volta
 ```
 #PBS -q gpuvolta
@@ -299,21 +305,6 @@ application input.$PBS_ARRAY_INDEX > output.$PBS_ARRAY_INDEX
 # minimum ngpus request is 1.
 #PBS -l ncpus = 12
 # minimum ncpus request is 12, in the multiple of 12, and 12 x ngpus
-```
--- *Slide End* --
-
--- *Slide* --
-### Part 4: Dependency Job Script
-```
-#!/bin/bash   
-#PBS -l walltime=01:00:00    
-#PBS -l mem=1 GB    
-#PBS -l jobfs=1 GB   
-#PBS -l ncpus=4   
-#PBS -q expressbw   
-#PBS -P ProjectID
-module load application/version
-command data   
 ```
 -- *Slide End* --
 

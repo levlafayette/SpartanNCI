@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -P vp61
+#PBS -q normal
+#PBS -l walltime=0:10:00
+#PBS -l mem=300MB
+#PBS -l jobfs=1GB
+#PBS -l ncpus=2
+#PBS -l wd
+module load openmpi/4.0.2
+mpiexec ./mpi-helloworld 
+
+
+
