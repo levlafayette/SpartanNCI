@@ -39,9 +39,18 @@
 ### Part 1: The Gadi Supecomputer
 * Main HPC system in Gadi, Australia's peak research supercomputer; 9 PetaFLOP peak compute performance, 15 PFs theoretical. Number 24 in the Top 500 in June 2020, `https://www.top500.org/system/179865/`
 * 3200 nodes. Intel Cascade Lake and Nvidia V100 processors,;  a total of 145,152 CPU cores, 567 Terabytes of memory, and 640 GPUs.
+-- *Slide End* --
+
+-- *Slide* --
+### Part 1: Network, Storage 
 * Mellanox HDR Infiniband in a Dragonfly+ topology, capable of transferring data at up to 200 Gb/s. 
 * Storage uses NetApp storage arrays, with DDN Lustre parallel file system.
+-- *Slide End* --
+
+-- *Slide* --
+### Part 1: Network, Storage 
 * Altair’s PBSPro software optimises job scheduling and workload management. CentOS Linux operating system
+* Environment modules
 -- *Slide End* --
 
 -- *Slide* --
@@ -60,7 +69,7 @@
 ### Part 1: NCI and Tenjin
 * Also has cloud Infrastructure - Tenjin - a private cloud built on NeCTAR hardware for NCI's collaborating organisations; and NeCTAR Research Cloud for researchers from any affiliated Australian university.
 * Designed for services complementary to the HPC system for exporting processed data sets and on-demand computation.
-* Both use similar hardware and network as the supercomputer specification. Tenjin in particular is tightly coupled with the HPC and storage infrastructure.
+* Both use similar hardware and network as the supercomputer specification. 
 -- *Slide End* -- 
 
 -- *Slide* --
@@ -74,6 +83,10 @@
 ### Part 1: Access to NCI
 * Main access through National Computational Merit Allocation Scheme (NCMAS). `https://ncmas.nci.org.au`. Includes NCI (Gadi), Pawsey Centre (Magnus), Monash (MASSIVE), and UQ (FlashLite).
 * NCI Start-up Scheme, much smaller compute quota, used primarily for evaluation. Follow the 'propose a project' link on MyNCI portal to submit a start-up proposal. 
+-- *Slide End* -- 
+
+-- *Slide* --
+### Part 1: Access to NCI
 * Partner Shares (Government agencies, medical research centres, and universities). Each NCI partner distrubutes its share their discretion. ANU has its on merit scheme.
 -- *Slide End* --
 
@@ -81,6 +94,10 @@
 ### Part 1: Registration Process
 * Start at `https://my.nci.org.au/mancini` and follow the prompts. You need to use your institutional e-mail address. You will be asked for a project code.
 * The Lead Chief Investigator (CI) of the project will be e-mailed for approval. Once approved, a username will be generated and e-mailed to you. 
+-- *Slide End* --
+
+-- *Slide* --
+### Part 1: Registration Process
 * If you wish to join another project (subject to approval) goto my.nci.org.au/mancini/project/projectID/join
 * All usage of compute systems is accounted against projects.
 -- *Slide End* --
@@ -155,16 +172,24 @@
 -- *Slide End* --
 
 -- *Slide* --
-# Part 3: Scheduler and Queues [EDIT]
+### Part 3: Scheduler and Queues
 * Gadi uses PBS Professional v19 as the scheduler and resource manager.
 * Many queues; `express`, `normal`, `copyq`, `hugemem`, `gpu`, `gpupascal`, `knl`, `normalbw`, `expressbw`, `normalsb`, `megamem`. Different queues have different costs to the project and default walltime.
+-- *Slide End* --
+
+-- *Slide* --
+### Job Listing
 * Listing of current jobs available through `qstat`; alternatives are `qstat -a`, `nqstat`, and `nqstat_anu`. The latter two list the number of jobs in each queue, `nqstat` updates every 30 seconds, and `nqstat_anu` updates instantaneously.
 -- *Slide End* --
 
 -- *Slide* --
-# Part 3: The Main Queues
+### Part 3: The Main Queues
 * The standard queue is `normal`, 2 SU per resource-hour, based on the higher of CPUs, or memory divided by 4GB.
 * The high priority queue for debugging, testing etc is `express`, limits in CPU and walltime. Charge rate is 6 SU per resource hour. SUs based on CPUs or memory divided by 4GB.
+-- *Slide End* --
+
+-- *Slide* --
+### Part 3: Data Movement
 * The data movement and management queue is `copyq`. These nodes have a dedicated external network interface. No computation on these node. Charge rate is 2 SU per resource hour, based on CPUs or memory divided by 4GB.
 -- *Slide End* --
 
@@ -175,20 +200,20 @@
 -- *Slide End* --
 
 -- *Slide* --
-# Part 3: HugeMem Queue
+### Part 3: HugeMem Queue
 * The `hugemen` queue has 1.5TB of persistent memory, 1.6TB of local disk, but only 1400GB can be requested by jobs.
 * Charge rate is 3.0 SU per resource hour, based on CPUs or memory divided by 32GB.
 -- *Slide End* --
 
 -- *Slide* --
-# Part 3: GPUvolta Queue
+### Part 3: GPUvolta Queue
 * The nodes have 4 Telsva V100s each; 384 GBytes of RAM on CPU, 
 480 GBytes of SSD local disk. 
 * Charge rate is 3.0 SU per resource hour, based on CPUs or memory divided by 8GB.
 -- *Slide End* --
 
 -- *Slide* --
-# Part 3: Ex-Raijin Queues
+### Part 3: Ex-Raijin Queues
 * `hugemembw`, `#PBS -q hugemembw`
 * `megamembw`, `"#PBS -q megamembw`
 * `expressbw` `#PBS -q expressbw`
@@ -245,7 +270,6 @@
 
 -- *Slide* --
 ### Part 4: Multinode Job Script
-```
 * As multicore job except include:
 ```
 module load openmpi/$version
@@ -302,6 +326,7 @@ command data
 
 -- *Slide* --
 ### Part 4: JOBFS
+```
 #!/bin/bash
 #PBS -q normal
 #PBS -l walltime=00:30:00,ncpus=4,mem=8GB
