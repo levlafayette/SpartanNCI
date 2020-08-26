@@ -178,7 +178,7 @@
 -- *Slide End* --
 
 -- *Slide* --
-### Job Listing
+### Part 3: Job Listing
 * Listing of current jobs available through `qstat`; alternatives are `qstat -a`, `nqstat`, and `nqstat_anu`. The latter two list the number of jobs in each queue, `nqstat` updates every 30 seconds, and `nqstat_anu` updates instantaneously.
 -- *Slide End* --
 
@@ -194,7 +194,7 @@
 -- *Slide End* --
 
 -- *Slide* --
-# Part 3: MDSS and copyq
+### Part 3: MDSS and copyq
 * Use mdss commands in copyq jobs to copy data to/from the massdata system; always use `-lother=mdss` when using mdss commands. 
 * Ensures that a job will only run if the mdss system is operational.
 -- *Slide End* --

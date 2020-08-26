@@ -192,7 +192,7 @@
 * Many queues; `express`, `normal`, `copyq`, `hugemem`, `gpu`, `gpupascal`, `knl`, `normalbw`, `expressbw`, `normalsb`, `megamem`. Different queues have different costs to the project and default walltime.
 </script></section>
 <section data-markdown><script type="text/template">
-### Job Listing
+### Part 3: Job Listing
 * Listing of current jobs available through `qstat`; alternatives are `qstat -a`, `nqstat`, and `nqstat_anu`. The latter two list the number of jobs in each queue, `nqstat` updates every 30 seconds, and `nqstat_anu` updates instantaneously.
 </script></section>
 <section data-markdown><script type="text/template">
@@ -205,7 +205,7 @@
 * The data movement and management queue is `copyq`. These nodes have a dedicated external network interface. No computation on these node. Charge rate is 2 SU per resource hour, based on CPUs or memory divided by 4GB.
 </script></section>
 <section data-markdown><script type="text/template">
-# Part 3: MDSS and copyq
+### Part 3: MDSS and copyq
 * Use mdss commands in copyq jobs to copy data to/from the massdata system; always use `-lother=mdss` when using mdss commands. 
 * Ensures that a job will only run if the mdss system is operational.
 </script></section>
