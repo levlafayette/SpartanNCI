@@ -1,0 +1,23 @@
+# Basic Scheduler Commands
+
+To submit a job use `qsub $JobName`. Job status can be determined by `qstat $JobID`, `qstat -s $JobID` or `qstat -u $Username`, or `qdel $JobID` to delete a job. To review a job's details use `qstat -f $JobID`.
+
+Standard output and error streams are collected by PBSPro and saved in `<Jobname>.o<Jobid>` for standard output and `<Jobname>.e<Jobid>` for standard error.
+
+To put a user hold on a job use `qhold $JobID`, and  `qrls -h u $JobID` to release. 
+
+A job can be terminated and relaunched with `qrerun $JobID`
+
+A job selection can be shown e.g., `qselect -u $username -l ncpus.gt. $number`	
+
+# PBS Directives
+
+`#PBS -N job_name` for job name
+`#PBS -j oe` or `eo` to combine output and error files; also `-e directory` or `-o $directory` for specific locations.
+`#PBS -m abe` for mail when job aborts, begins, ends. Combine with `-M $email` directive.
+
+# Gadi Directives
+
+Jobs must explicitly declare the file systems accessed. Files in `/scratch/$project` and `/g/data/$project` directories must include the directive  `-lstorage=scratch/$project+gdata/$project`. 
+
+# Example Scripts

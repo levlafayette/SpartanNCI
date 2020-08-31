@@ -1,0 +1,39 @@
+# About NCI and Gadi
+
+National Computational Infrastructure (NCI) is Australia's peak facility for computational research and is located at ANU, Canberra.
+
+Main HPC system in Gadi, Australia's peak research supercomputer; 9 PetaFLOP peak compute performance, 15 PFs theoretical. Number 24 in the Top 500 in June 2020.
+
+# Getting An Account
+
+Getting an account on Gadi is not as easy as Spartan.
+
+There are merit allocations schemes, collaborator schemes, a start-up scheme for new users and an industry access scheme. 
+
+Register for an account or new project at the MyNCI portal. `https://my.nci.org.au/`
+
+The NCI Flagship Allocation Scheme provides for projects identified by the NCI Board as being of high-impact or national strategic 
+
+Main access through National Computational Merit Allocation Scheme (NCMAS). `https://ncmas.nci.org.au`. Includes NCI (Gadi), Pawsey Centre (Magnus), Monash (MASSIVE), and UQ (FlashLite).
+
+NCI Start-up Scheme, much smaller compute quota, used primarily for evaluation. Follow the 'propose a project' link on MyNCI portal to submit a start-up proposal. 
+
+# Accessing Gadi
+
+The hostname for Gadi is gadi.nci.org.au. As with similar systems logins are via SSH. The command `ssh username@Gadi.nci.org.au` will put the user one of the login nodes; use -Y for X-Windows forwarding.
+
+Do consider using an SSH config and/or passwordless SSH, it will make things a lot easier
+
+# Shell Environment
+
+Gadi login configuation is located at `.config/gadi-login.conf`
+
+This caan be used to change the the default project and the CLI shell that Gadi initiates, which is bash by default (e.g., `SHELL /bin/tcsh`). If you try to use a shell not registered it will default to bash.
+
+# Modules and Scheduler
+
+Gadi has software under a TCL enviroment modules scheme.
+
+Gadi uses PBSPro for workload management, not Slurm. See PBS_Commands file.
+
+There are sample job submission scripts in this directory for multicore, multinode, job dependencies, and job arrays on Gadi.

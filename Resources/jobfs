@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -q normal
+#PBS -l walltime=00:30:00,ncpus=4,mem=8GB
+#PBS -l jobfs=100GB
+INPUT_DIR=${PBS_O_WORKDIR}
+OUTPUT_DIR=/g/data/$projectid
+cp -r ${INPUT_DIR} ${PBS_JOBFS}/mydata
+cd ${PBS_JOBFS}/mydata
+myprogramme
+tar -cf ${PBS_JOBID}.tar .
+cp ${PBS_JOBID}.tar $OUTPUT_DIR

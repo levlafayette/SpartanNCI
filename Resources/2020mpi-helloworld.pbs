@@ -1,0 +1,22 @@
+#!/bin/bash
+# This is a sample job template for Gadi.
+
+# Change the project to your project
+#PBS -P vp61
+
+# Standard Queue
+#PBS -q normal
+#PBS -l walltime=0:10:00
+# PBS -l mem=5GB
+
+# This is for local compute disk.
+# PBS -l jobfs=1GB
+
+#PBS -j oe
+#PBS -l ncpus=2
+
+# Change to working directory
+#PBS -l wd
+
+module load openmpi/4.0.2
+mpiexec ./mpi-helloworld
