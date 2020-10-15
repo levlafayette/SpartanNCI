@@ -8,7 +8,7 @@
 
 -- *Slide* --
 ### Part 0: Documentation and Help
-* This presentation: `https://github.com/UoM-ResPlat-DevOps/SpartanNCI`
+* This presentation: `https://github.com/levlafayette/SpartanNCI`
 * Wiki : `opus.nci.org.au`
 * Enquiries: `enquiries@nci.org.au` Helpdesk : `help.nci.org.au`
 -- *Slide End* --
@@ -36,38 +36,63 @@
 -- *Slide End* --
 
 -- *Slide* --
+<img src="https://raw.githubusercontent.com/levlafayette/SpartanNCI/master/Images/gadi.jpg" width="150%" height="150%" />
+-- *Slide End* --
+
+-- *Slide* --
 ### Part 1: The Gadi Supecomputer
 * Main HPC system in Gadi, Australia's peak research supercomputer; 9 PetaFLOP peak compute performance, 15 PFs theoretical. Number 24 in the Top 500 in June 2020, `https://www.top500.org/system/179865/`
-* 3200 nodes. Intel Cascade Lake and Nvidia V100 processors,;  a total of 145,152 CPU cores, 567 Terabytes of memory, and 640 GPUs.
+* 3204 nodes. Intel Cascade Lake, 48 cores per node, 1.5TB. 640 NVIDIA V100 GPUs in 160 nodes
+* Total of 145,152 CPU cores, 567 Terabytes of memory, and 640 GPUs.
 -- *Slide End* --
 
 -- *Slide* --
-### Part 1: Network, Storage 
+### Part 1: Gadi Network, Storage 
 * Mellanox HDR Infiniband in a Dragonfly+ topology, capable of transferring data at up to 200 Gb/s. 
-* Storage uses NetApp storage arrays, with DDN Lustre parallel file system.
+* Storage uses NetApp storage arrays, with DDN Lustre parallel file system. 
+* Persistent data storage in excess of 50 petabytes
 -- *Slide End* --
 
 -- *Slide* --
-### Part 1: Network, Storage 
-* Altair’s PBSPro software optimises job scheduling and workload management. CentOS Linux operating system
-* Environment modules
+### Part 1: Gadi Network, Storage 
+* Altair's PBSPro software optimises job scheduling and workload management. CentOS Linux operating system
+* Environment modules `https://opus.nci.org.au/display/Help/Gadi+Software+Catalogue`
 -- *Slide End* --
 
 -- *Slide* --
-### Part 1: Main Storage System
+### Part 1: Gadi Storage System
 * Fastest filesystem (/scratch) in the southern hemisphere with 7,200 4-Terabyte hard disks in 120 NetApp disk arrays, 20 Petabytes total useable capacity, 980 Gigabytes per second maximum performance.
 * A total of 50 Petabytes of research data stored in five separate global Lustre filesystems, reaching a peak IO performance of around 350 GB/second.
 -- *Slide End* --
 
 -- *Slide* --
-### Part 1: IO and Archive Storage
+### Part 1: Gadi IO and Archive Storage
 * A special IO Intensive Platform, a dedicated filesystem using 576 2-Terabyte NVMe drives at 960 Gigabytes per second. 
 * Plus 50 Petabytes of archival project data in state of the art magnetic tape libraries.
 -- *Slide End* --
 
 -- *Slide* --
+### Part 1: Pawsey
+*  Petascale Cray XC-40 system called Magnus, radio astronomy system Cray XC-30 'Galaxy', commodity cluster Zeus, GPU cluster Topaz, remote visualisation and the cloud platform Nimbus.
+* NCMAS applicants can request time on the Cray XC-40 system Magnus 
+-- *Slide End* --
+
+-- *Slide* --
+### Part 1: MASSIVE
+* M3 is composed of 6,000 CPU cores, 272 GPU co-processors and a 3PB fast parallel Lustre file system. 
+* Strong integration with instruments. Lead early development in remote desktop environment.
+* Specialist call for NCMAS applications in neuroscience, structural biology, machine learning. 
+-- *Slide End* --
+
+-- *Slide* --
+### Part 1: Flashlight
+* FlashLite is optimised for data intensive computation and has 1632 cores, 34.8 TB of RAM, 326.4 TB of NVMe storage.
+* Compute nodes in FlashLite can be flexibly aggregated together into larger "supernodes" using ScaleMP's vSMP software. 
+-- *Slide End* --
+
+-- *Slide* --
 ### Part 1: NCI and Tenjin
-* Also has cloud Infrastructure - Tenjin - a private cloud built on NeCTAR hardware for NCI's collaborating organisations; and NeCTAR Research Cloud for researchers from any affiliated Australian university.
+* Gadi and NCI also has cloud Infrastructure - Tenjin - a private cloud built on NeCTAR hardware for NCI's collaborating organisations; and NeCTAR Research Cloud for researchers from any affiliated Australian university.
 * Designed for services complementary to the HPC system for exporting processed data sets and on-demand computation.
 * Both use similar hardware and network as the supercomputer specification. 
 -- *Slide End* -- 
@@ -81,12 +106,15 @@
 
 -- *Slide* --
 ### Part 1: Access to NCI
-* Main access through National Computational Merit Allocation Scheme (NCMAS). `https://ncmas.nci.org.au`. Includes NCI (Gadi), Pawsey Centre (Magnus), Monash (MASSIVE), and UQ (FlashLite).
-* NCI Start-up Scheme, much smaller compute quota, used primarily for evaluation. Follow the 'propose a project' link on MyNCI portal to submit a start-up proposal. 
+* Main access through National Computational Merit Allocation Scheme (NCMAS). `https://ncmas.nci.org.au`. 
+* Includes NCI (Gadi), Pawsey Centre (Magnus), Monash (MASSIVE), and UQ (FlashLite).
+* Information pack: `https://bit.ly/3j4EvdU`
+* Lead CI must have a >0.2 FTE research position. Proposal length between 1K and 3K words. 
 -- *Slide End* -- 
 
 -- *Slide* --
 ### Part 1: Access to NCI
+* NCI Start-up Scheme, much smaller compute quota, used primarily for evaluation. Follow the 'propose a project' link on MyNCI portal to submit a start-up proposal. 
 * Partner Shares (Government agencies, medical research centres, and universities). Each NCI partner distrubutes its share their discretion. ANU has its on merit scheme.
 -- *Slide End* --
 
@@ -113,7 +141,7 @@
 -- *Slide* --
 ### Part 2: Shell Environment
 * Gadi login configuation is located at `.config/gadi-login.conf`
-* This caan be used to change the the default project and the CLI shell that Gadi initiates, which is bash by default (e.g., `SHELL /bin/tcsh`). If you try to use a shell not registered it will default to bash.
+* This can be used to change the the default project and the CLI shell that Gadi initiates, which is bash by default (e.g., `SHELL /bin/tcsh`). If you try to use a shell not registered it will default to bash.
 -- *Slide End* --
 
 -- *Slide* --
@@ -141,6 +169,10 @@
 ### Part 2: Filesystem /scratch
 * The temporary file system for Gadi users is `/scratch`, which is subject to an automated file purging policy; files are removed 90 days after the time of last modification (mtime).
 * No, don't try using `touch`. It will result in account deactivation.
+-- *Slide End* --
+
+-- *Slide* --
+### Part 2: Filesystem /scratch
 * More permanent files should be stored in project directories on the `/g/data` file system.
 * Safety quotas, to prevent accidental overpopulation of the file system, will be applied to projects on `/scratch` (in development). 
 -- *Slide End* --
@@ -174,7 +206,9 @@
 -- *Slide* --
 ### Part 3: Scheduler and Queues
 * Gadi uses PBS Professional v19 as the scheduler and resource manager.
-* Many queues; `express`, `normal`, `copyq`, `hugemem`, `gpu`, `gpupascal`, `knl`, `normalbw`, `expressbw`, `normalsb`, `megamem`. Different queues have different costs to the project and default walltime.
+* Many queues; `express`, `normal`, `copyq`, `hugemem`, `gpu`, `gpupascal`, `knl`, `normalbw`, `expressbw`, `normalsb`, `megamem`.
+* Full list with `qstat -q`
+* Different queues have different costs to the project and default walltime.
 -- *Slide End* --
 
 -- *Slide* --
@@ -216,7 +250,7 @@
 ### Part 3: Ex-Raijin Queues
 * `hugemembw`, `#PBS -q hugemembw`
 * `megamembw`, `"#PBS -q megamembw`
-* `expressbw` `#PBS -q expressbw`
+* `expressbw`, `#PBS -q expressbw`
 * `normalbw`, `#PBS -q normalbw`
 * `normalsl`, `#PBS -q normalbw`
 -- *Slide End* --
@@ -271,24 +305,15 @@
 -- *Slide* --
 ### Part 4: Multinode Job Script
 * As multicore job except include:
-```
-module load openmpi/$version
-mpirun ./my_program.exe > my_output.out
-```
+`module load openmpi/$version`
+`mpirun ./my_program.exe > my_output.out`
 -- *Slide End* --
 
 -- *Slide* --
 ### Part 4: Array Job Script
-```
-#!/bin/bash
-#PBS -A project_code
-#PBS -l walltime=01:00:00
-#PBS -q normal
-#PBS -l select=1:ncpus=1
-#PBS -J 1-5
-# Execute subjob for index PBS_ARRAY_INDEX
-application input.$PBS_ARRAY_INDEX > output.$PBS_ARRAY_INDEX
-```
+* No job arrays!
+* Use a heredoc to create multiple scripts
+* Then use a for loop to launch
 -- *Slide End* --
 
 -- *Slide* --
@@ -299,13 +324,11 @@ application input.$PBS_ARRAY_INDEX > output.$PBS_ARRAY_INDEX
 
 -- *Slide* --
 ### Part 4: GPU Volta
-```
-#PBS -q gpuvolta
-#PBS -l ngpus = 1
-# minimum ngpus request is 1.
-#PBS -l ncpus = 12
-# minimum ncpus request is 12, in the multiple of 12, and 12 x ngpus
-```
+`#PBS -q gpuvolta`
+`#PBS -l ngpus = 1`
+`# minimum ngpus request is 1.`
+`#PBS -l ncpus = 12`
+`# minimum ncpus request is 12, in the multiple of 12, and 12 x ngpus`
 -- *Slide End* --
 
 -- *Slide* --
@@ -337,4 +360,6 @@ cp ${PBS_JOBID}.tar $OUTPUT_DIR
 * Interactive jobs can be launched with the `-I` option and the resource requirements specified at launch. e.g., `qsub -I -l ncpus=2,mem=1G,walltime=00:15:00 -q expressbw`
 -- *Slide End* --
 
-
+-- *Slide* --
+<img src="https://raw.githubusercontent.com/levlafayette/SpartanIntro/master/Images/hypnotoad.png" width="150%" height="150%" />
+-- *Slide End* --
